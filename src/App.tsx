@@ -28,7 +28,7 @@ export interface Account {
 function App() {
   const [date, setDate] = useState<Date>(new Date());
   const [expenseList, setExpenseList] = useState<Expense[]>([]);
-  const [accountList, setAccountList] = useState<Account[]>([
+  const [accountList] = useState<Account[]>([
     { name: 'Axis', type: 'Bank' },
     { name: 'Myzone', type: 'Card' },
     { name: 'Bonus', type: 'Cash' },
