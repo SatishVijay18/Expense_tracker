@@ -2,9 +2,9 @@ import { Expense } from '@/App';
 
 function TransactionList({ list }: { list: Expense[] }) {
   return (
-    <div className="font-Poetsen h-full rounded-xl bg-white p-6">
-      <h1 className="border-b-2 py-4 text-center text-3xl">Transactions</h1>
-      <div className="scrollbar-none h-5/6 overflow-y-auto">
+    <div className="font-Poetsen h-full p-6">
+      <h1 className="py-4 text-center text-3xl">Transactions</h1>
+      <div className="scrollbar-none h-5/6 overflow-y-auto rounded-xl bg-white text-custtern">
         <ul className=" px-8 pt-8  text-2xl">
           {list.map((expense, index) => {
             return (

@@ -17,7 +17,14 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        Poetsen: ['Poetsen One', 'sans-serif'],
+      },
       colors: {
+        custprim: '#F5F7F8',
+        custsec: '#F4CE14',
+        custtern: '#495E57',
+        custquart: '#45474B',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
