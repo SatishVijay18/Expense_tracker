@@ -76,7 +76,7 @@ function App() {
   };
 
   return (
-    <div className="flex h-screen bg-[url('./wave-haikei.png')] ">
+    <div className="flex h-screen bg-[url('/wave-haikei.png')] ">
       <div className="trans-wrapper h-full w-1/2">
         <TransactionList list={expenseList} />
       </div>
