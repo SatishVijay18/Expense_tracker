@@ -21,7 +21,7 @@ export default function CatPopUp({
     <Popover open={popOverOpen} onOpenChange={setPopOverOpen}>
       <PopoverTrigger asChild>
         <Button variant="default" className="bg-custtern">
-          Open popover
+          Add Account
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-80">

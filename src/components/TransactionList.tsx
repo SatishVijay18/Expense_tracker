@@ -2,18 +2,19 @@ import { Expense } from '@/App';
 
 function TransactionList({ list }: { list: Expense[] }) {
   return (
-    <div className="font-Poetsen h-full p-6">
+    <div className="h-full p-6 font-Poetsen">
       <h1 className="py-4 text-center text-3xl">Transactions</h1>
       <div className="scrollbar-none h-5/6 overflow-y-auto rounded-xl bg-white text-custtern">
         <ul className=" px-8 pt-8  text-2xl">
           {list.map((expense, index) => {
+            const toggle = expense.type == 'expense' ? true : false;
             return (
               <li key={index} className="flex flex-wrap justify-between">
-                <div>{expense.account.name}</div>
-                <div>{expense.name}</div>
-                <div>{expense.category}</div>
-                <div>₹{expense.amount}</div>
-                <div>{expense.date.toDateString()}</div>
+                <ul>{expense.name}</ul>
+                <ul>{expense.description}</ul>
+                <ul style={{ color: toggle ? 'red' : 'green' }}>
+                  ₹{expense.amount}
+                </ul>
               </li>
             );
           })}
