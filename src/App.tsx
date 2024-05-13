@@ -90,12 +90,12 @@ function App() {
   };
 
   return (
-    <div className="flex h-screen bg-[url('/wave-haikei.png')] ">
+    <div className="flex h-screen bg-[url('/layered-waves-haikei.png')] bg-cover ">
       <div className="trans-wrapper h-full w-1/2">
         <TransactionList list={allTransactions} />
       </div>
       <div className="dashboard-charts-wrapper w-1/2">
-        <div className="mx-6 my-6 flex h-1/2  justify-center rounded-xl  bg-white p-4">
+        <div className="mx-6 my-6 flex h-[45%]  justify-center rounded-xl  bg-white bg-opacity-70 p-4">
           <InputTabs
             handleSubmit={handleSubmit}
             handleInputChange={handleInputChange}
@@ -107,7 +107,7 @@ function App() {
             setExpenseToggle={setexpenseToggle}
           />
         </div>
-        <div className="m-4 flex h-2/5  rounded-xl bg-white">
+        <div className="m-4 flex h-2/5  rounded-xl bg-white bg-opacity-70">
           {expenseToggle == 'expense' ? (
             <ChartComponent
               expenseList={expenseList}

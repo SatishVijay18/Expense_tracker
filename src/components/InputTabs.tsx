@@ -180,7 +180,7 @@ function InputTabs({
               <DatePicker date={date} setDate={setDate} />
             </div>
             <div className="my-4 flex justify-center">
-              <Button type="submit" className="bg-custsec">
+              <Button type="submit" className="bg-custsec hover:bg-custquart">
                 Add Record
               </Button>
             </div>
