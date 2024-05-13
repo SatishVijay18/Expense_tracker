@@ -19,6 +19,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Poetsen: ['Poetsen One', 'sans-serif'],
+        Kanit: ['Kanit', 'sans-serif'],
       },
       colors: {
         custprim: '#F9ED69',

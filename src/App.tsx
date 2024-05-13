@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import TransactionList from './components/TransactionList';
+// import TransactionList from './components/TransactionList';
 import ChartComponent from './components/ChartComponent';
 import CatPopUp from './components/CatPopUp';
 import InputTabs from './components/InputTabs';
+import { DataTable } from './components/Table/datatable';
+
+import { columns } from './components/Table/Columns';
 
 export interface Expense {
   name: string;
@@ -10,6 +13,7 @@ export interface Expense {
   description: string;
   date: Date;
   account: Account;
+  accountName: string;
   type: string;
 }
 
@@ -63,6 +67,7 @@ function App() {
         ? accountobj
         : { name: 'Unassigned', type: 'default' },
       type: expenseToggle,
+      accountName: accountobj ? accountobj.name : 'Unassigned', // set accountName
     };
 
     // expense or income
@@ -92,7 +97,13 @@ function App() {
   return (
     <div className="flex h-screen bg-[url('/layered-waves-haikei.png')] bg-cover ">
       <div className="trans-wrapper h-full w-1/2">
-        <TransactionList list={allTransactions} />
+        <div className="mx-4 mt-6">
+          <DataTable
+            columns={columns}
+            data={allTransactions}
+            dataType="expense"
+          />
+        </div>
       </div>
       <div className="dashboard-charts-wrapper w-1/2">
         <div className="mx-6 my-6 flex h-[45%]  justify-center rounded-xl  bg-white bg-opacity-70 p-4">
@@ -121,7 +132,7 @@ function App() {
           )}
         </div>
       </div>
-      <div className="modal-wrapper absolute bottom-1 ">
+      <div className="modal-wrapper absolute bottom-0 ">
         <CatPopUp accountList={accountList} setAccountList={setAccountList} />
       </div>
     </div>

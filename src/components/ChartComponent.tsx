@@ -19,21 +19,17 @@ export default function ChartComponent({
   return (
     <div className="flex h-full w-full flex-col">
       <div className=" mt-2 flex justify-center">
-        <Button className="mx-2 mt-2 bg-custtern bg-opacity-90 hover:bg-custquart">
-          {' '}
-          1 month{' '}
+        <Button className="mx-2 mt-2 bg-custtern bg-opacity-70 hover:bg-custquart">
+          1 month
         </Button>
-        <Button className="mx-2 mt-2 bg-custtern bg-opacity-90 hover:bg-custquart">
-          {' '}
-          3 months{' '}
+        <Button className="mx-2 mt-2 bg-custtern bg-opacity-70 hover:bg-custquart">
+          3 months
         </Button>
-        <Button className="mx-2 mt-2 bg-custtern bg-opacity-90 hover:bg-custquart">
-          {' '}
-          6 months{' '}
+        <Button className="mx-2 mt-2 bg-custtern bg-opacity-70 hover:bg-custquart">
+          6 months
         </Button>
-        <Button className="mx-2 mt-2 bg-custtern bg-opacity-90 hover:bg-custquart">
-          {' '}
-          1 year{' '}
+        <Button className="mx-2 mt-2 bg-custtern bg-opacity-70 hover:bg-custquart">
+          1 year
         </Button>
       </div>
       <div className=" pt-2 text-center font-Poetsen text-xl">
