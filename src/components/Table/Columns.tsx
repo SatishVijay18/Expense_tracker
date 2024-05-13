@@ -28,12 +28,27 @@ export const columns: ColumnDef<Expense>[] = [
     },
     cell: ({ row }) => (
       <span
-        className={`font-bold ${
+        className={` font-bold ${
           row.original.type === 'expense' ? 'text-red-500' : 'text-green-500'
         }`}
       >
         {row.original.amount}
       </span>
     ),
+  },
+  {
+    accessorKey: 'date',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Date
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => <span>{row.original.date.toLocaleDateString()}</span>,
   },
 ];

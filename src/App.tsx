@@ -97,7 +97,7 @@ function App() {
   return (
     <div className="flex h-screen bg-[url('/layered-waves-haikei.png')] bg-cover ">
       <div className="trans-wrapper h-full w-1/2">
-        <div className="mx-4 mt-6">
+        <div className="mx-2 mt-6">
           <DataTable columns={columns} data={allTransactions} />
         </div>
       </div>
