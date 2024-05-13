@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ChartComponent from './components/ChartComponent';
 import CatPopUp from './components/CatPopUp';
 import InputTabs from './components/InputTabs';
-import { DataTable } from './components/Table/datatable';
+import { DataTable } from './components/Table/DataTable';
 
 import { columns } from './components/Table/Columns';
 
@@ -98,11 +98,7 @@ function App() {
     <div className="flex h-screen bg-[url('/layered-waves-haikei.png')] bg-cover ">
       <div className="trans-wrapper h-full w-1/2">
         <div className="mx-4 mt-6">
-          <DataTable
-            columns={columns}
-            data={allTransactions}
-            dataType="expense"
-          />
+          <DataTable columns={columns} data={allTransactions} />
         </div>
       </div>
       <div className="dashboard-charts-wrapper w-1/2">
