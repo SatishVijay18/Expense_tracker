@@ -114,7 +114,7 @@ function App() {
             setExpenseToggle={setexpenseToggle}
           />
         </div>
-        <div className="m-4 flex h-2/5  rounded-xl bg-white bg-opacity-70">
+        <div className="m-4 flex h-[45%]  rounded-xl bg-white bg-opacity-70">
           {expenseToggle == 'expense' ? (
             <ChartComponent
               expenseList={expenseList}
