@@ -95,14 +95,14 @@ function App() {
   };
 
   return (
-    <div className="flex h-screen bg-[url('/layered-waves-haikei.png')] bg-cover ">
-      <div className="trans-wrapper h-full w-1/2">
-        <div className="mx-2 mt-6">
+    <div className="flex h-screen flex-col bg-[url('/layered-waves-haikei.png')] bg-cover lg:flex-row ">
+      <div className="trans-wrapper  w-full   lg:h-full lg:w-1/2">
+        <div className="mx-2 md:mt-6">
           <DataTable columns={columns} data={allTransactions} />
         </div>
       </div>
-      <div className="dashboard-charts-wrapper w-1/2">
-        <div className="mx-6 my-6 flex h-[45%]  justify-center rounded-xl  bg-white bg-opacity-70 p-4">
+      <div className="dashboard-charts-wrapper h-3/4 w-full lg:h-full lg:w-1/2">
+        <div className="mx-6 my-6 flex h-[45%] items-center  justify-center rounded-xl  bg-white bg-opacity-70 lg:p-4">
           <InputTabs
             handleSubmit={handleSubmit}
             handleInputChange={handleInputChange}

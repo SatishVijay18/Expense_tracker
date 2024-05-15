@@ -49,11 +49,11 @@ export default function ChartComponent({
 
   return (
     <div className="flex h-full w-full flex-col">
-      <div className=" mt-2 flex justify-center">
+      <div className=" mt-2 flex w-full justify-center">
         <Button
           className={`${
             filterparam == 30 ? 'bg-custtern' : 'bg-black'
-          } mx-2 mt-2 bg-opacity-70 hover:bg-custquart`}
+          } mx-2 mt-2 bg-opacity-70 `}
           onClick={() => {
             if (filterparam !== 30) {
               setFilterParam(30);
@@ -65,7 +65,7 @@ export default function ChartComponent({
         <Button
           className={`${
             filterparam == 90 ? 'bg-custtern' : 'bg-black'
-          } mx-2 mt-2 bg-opacity-70 hover:bg-custquart`}
+          } mx-2 mt-2 bg-opacity-70 `}
           onClick={() => {
             if (filterparam !== 90) {
               setFilterParam(90);
@@ -77,7 +77,7 @@ export default function ChartComponent({
         <Button
           className={`${
             filterparam == 180 ? 'bg-custtern' : 'bg-black'
-          } mx-2 mt-2 bg-opacity-70 hover:bg-custquart`}
+          } mx-2 mt-2 bg-opacity-70 `}
           onClick={() => {
             if (filterparam !== 180) {
               setFilterParam(180);
@@ -89,7 +89,7 @@ export default function ChartComponent({
         <Button
           className={`${
             filterparam == 365 ? 'bg-custtern' : 'bg-black'
-          } mx-2 mt-2 bg-opacity-70 hover:bg-custquart`}
+          } mx-2 mt-2 bg-opacity-70 `}
           onClick={() => {
             if (filterparam !== 365) {
               setFilterParam(365);
@@ -103,11 +103,9 @@ export default function ChartComponent({
         {toggle ? <h1>Expense</h1> : <h1>Income</h1>}
       </div>
 
-      <div className="flex  justify-center">
+      <div className="flex h-full w-full justify-center">
         {' '}
         <LineChart
-          width={300}
-          height={220}
           series={[{ data: xData }]}
           xAxis={[{ scaleType: 'point', data: xlabel }]}
         />
