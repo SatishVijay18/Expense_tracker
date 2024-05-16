@@ -64,6 +64,8 @@ function InputTabs({
               </div>
               <div className="mx-2 my-4 ">
                 <Input
+                  required
+                  className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                   placeholder="Expense Amount"
                   type="number"
                   id="expense-amount"
@@ -86,6 +88,7 @@ function InputTabs({
               </div>
               <div className="mx-2 my-4">
                 <Select
+                  required
                   onValueChange={(e) =>
                     setFormData({ ...formData, ['accountname']: e })
                   }
@@ -133,6 +136,8 @@ function InputTabs({
               </div>
               <div className="mx-2 my-4 ">
                 <Input
+                  required
+                  className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                   placeholder="Income Amount"
                   type="number"
                   id="expense-amount"
@@ -155,6 +160,7 @@ function InputTabs({
               </div>
               <div className="mx-2 my-4">
                 <Select
+                  required
                   onValueChange={(e) =>
                     setFormData({ ...formData, ['accountname']: e })
                   }
