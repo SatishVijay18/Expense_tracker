@@ -47,8 +47,15 @@ export default function ChartComponent({
     xData.length = 0;
     xlabel.length = 0;
     filteredExpenses.forEach((expense) => {
-      xData.push(expense.amount);
-      xlabel.push(expense.date.toLocaleDateString());
+      if (toggle) {
+        if (expense.type == 'expense') {
+          xData.push(expense.amount);
+          xlabel.push(expense.date.toLocaleDateString());
+        }
+      } else if (expense.type !== 'expense') {
+        xData.push(expense.amount);
+        xlabel.push(expense.date.toLocaleDateString());
+      }
     });
   };
 

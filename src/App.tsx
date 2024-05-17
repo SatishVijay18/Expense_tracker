@@ -31,14 +31,12 @@ function App() {
   const [expenseToggle, setexpenseToggle] = useState('expense');
   const [date, setDate] = useState<Date>(new Date());
   const [expenseList, setExpenseList] = useState<Expense[]>([]);
-  const [incomeList, setIncomeList] = useState<Expense[]>([]);
   const [accountList, setAccountList] = useState<Account[]>([
     { name: 'Axis', type: 'Bank' },
     { name: 'Myzone', type: 'Card' },
     { name: 'Bonus', type: 'Cash' },
   ]);
   const [totalExp, setTotalExp] = useState(0);
-  const [totalIncome, setTotalIncome] = useState(0);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -46,8 +44,6 @@ function App() {
     description: '',
     accountname: '', // by default if accType and description are not set.
   });
-
-  const allTransactions = expenseList.concat(incomeList);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -68,16 +64,10 @@ function App() {
       accountName: accountobj ? accountobj.name : 'Unassigned', // set accountName
     };
 
-    // expense or income
-    if (expenseToggle == 'expense') {
-      const newexp = +totalExp + +formData.amount;
-      setTotalExp(newexp); // total amount spent for graph
-      setExpenseList([...expenseList, newExpense]); // total expense
-    } else {
-      const newIncome = +totalIncome + +formData.amount;
-      setTotalIncome(newIncome); // total income earned for graph
-      setIncomeList([...incomeList, newExpense]); // total expense
-    }
+    // total singular expense
+    const newexp = +totalExp + +formData.amount;
+    setTotalExp(newexp); // total amount spent for graph
+    setExpenseList([...expenseList, newExpense]); // total expense
 
     setFormData({
       name: '',
@@ -96,7 +86,7 @@ function App() {
     <div className="flex h-screen flex-col bg-[url('/layered-waves-haikei.png')] bg-cover lg:flex-row ">
       <div className="trans-wrapper  w-full   lg:h-full lg:w-1/2">
         <div className="mx-2 md:mt-6">
-          <DataTable columns={columns} data={allTransactions} />
+          <DataTable columns={columns} data={expenseList} />
         </div>
       </div>
       <div className="dashboard-charts-wrapper h-3/4 w-full lg:h-full lg:w-1/2">
@@ -114,17 +104,10 @@ function App() {
           />
         </div>
         <div className="m-4 flex h-[45%]  rounded-xl bg-white bg-opacity-70">
-          {expenseToggle == 'expense' ? (
-            <ChartComponent
-              expenseList={expenseList}
-              expenseToggle={expenseToggle}
-            />
-          ) : (
-            <ChartComponent
-              expenseList={incomeList}
-              expenseToggle={expenseToggle}
-            />
-          )}
+          <ChartComponent
+            expenseList={expenseList}
+            expenseToggle={expenseToggle}
+          />
         </div>
       </div>
     </div>
