@@ -1,7 +1,5 @@
 import { useState } from 'react';
-// import TransactionList from './components/TransactionList';
 import ChartComponent from './components/ChartComponent';
-import CatPopUp from './components/CatPopUp';
 import InputTabs from './components/InputTabs';
 import { DataTable } from './components/Table/DataTable';
 
@@ -112,6 +110,7 @@ function App() {
             date={date}
             setDate={setDate}
             setExpenseToggle={setexpenseToggle}
+            setAccountList={setAccountList}
           />
         </div>
         <div className="m-4 flex h-[45%]  rounded-xl bg-white bg-opacity-70">
@@ -127,9 +126,6 @@ function App() {
             />
           )}
         </div>
-      </div>
-      <div className="modal-wrapper absolute bottom-0 ">
-        <CatPopUp accountList={accountList} setAccountList={setAccountList} />
       </div>
     </div>
   );

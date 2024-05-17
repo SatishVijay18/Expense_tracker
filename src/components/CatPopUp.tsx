@@ -1,6 +1,7 @@
 import { Account } from '@/App';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Wallet } from 'lucide-react';
 
 import {
   Popover,
@@ -22,15 +23,16 @@ export default function CatPopUp({
       <PopoverTrigger asChild>
         <Button
           variant="default"
-          className="bg-custprim text-black hover:bg-custquart"
+          className="bg-custtern text-black hover:bg-custquart"
         >
-          Add Account
+          <Wallet />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-80">
         <div className="accounts-summary-wrapper h-full">
           <form
             onSubmit={(e) => {
+              e.stopPropagation();
               e.preventDefault();
               const formData = new FormData(e.currentTarget);
               const obj: Account = {

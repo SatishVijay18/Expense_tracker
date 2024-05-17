@@ -1,7 +1,14 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Expense } from '@/App';
-import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
 import { useState } from 'react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 export default function ChartComponent({
   expenseList,
@@ -45,59 +52,85 @@ export default function ChartComponent({
     });
   };
 
+  const handleSelectChange = (value: string) => {
+    const filterparam = parseInt(value);
+    if (filterparam == 0) {
+      setFilterParam(0);
+    } else if (filterparam == 30) {
+      setFilterParam(30);
+    } else if (filterparam == 90) {
+      setFilterParam(90);
+    } else if (filterparam == 180) {
+      setFilterParam(180);
+    } else if (filterparam == 365) {
+      setFilterParam(365);
+    }
+  };
+
+  console.log(filterparam);
   dateFilter();
 
   return (
-    <div className="flex h-full w-full flex-col">
-      <div className=" mt-2 flex w-full justify-center">
-        <Button
-          className={`${
-            filterparam == 30 ? 'bg-custtern' : 'bg-black'
-          } mx-2 mt-2 bg-opacity-70 `}
-          onClick={() => {
-            if (filterparam !== 30) {
-              setFilterParam(30);
-            } else setFilterParam(0);
-          }}
-        >
-          1 month
-        </Button>
-        <Button
-          className={`${
-            filterparam == 90 ? 'bg-custtern' : 'bg-black'
-          } mx-2 mt-2 bg-opacity-70 `}
-          onClick={() => {
-            if (filterparam !== 90) {
-              setFilterParam(90);
-            } else setFilterParam(0);
-          }}
-        >
-          3 months
-        </Button>
-        <Button
-          className={`${
-            filterparam == 180 ? 'bg-custtern' : 'bg-black'
-          } mx-2 mt-2 bg-opacity-70 `}
-          onClick={() => {
-            if (filterparam !== 180) {
-              setFilterParam(180);
-            } else setFilterParam(0);
-          }}
-        >
-          6 months
-        </Button>
-        <Button
-          className={`${
-            filterparam == 365 ? 'bg-custtern' : 'bg-black'
-          } mx-2 mt-2 bg-opacity-70 `}
-          onClick={() => {
-            if (filterparam !== 365) {
-              setFilterParam(365);
-            } else setFilterParam(0);
-          }}
-        >
-          1 year
-        </Button>
+    <div className="flex h-full w-full flex-col font-Poetsen">
+      <div className=" mt-2 flex w-full items-center justify-center">
+        <Label className="mx-2"> Pick Date Range</Label>
+        <Select onValueChange={handleSelectChange}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Select Range" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem
+              value="0"
+              onSelect={() => {
+                if (filterparam !== 30) {
+                  setFilterParam(30);
+                }
+              }}
+            >
+              All Time
+            </SelectItem>
+            <SelectItem
+              value="30"
+              onSelect={() => {
+                if (filterparam !== 30) {
+                  setFilterParam(30);
+                }
+              }}
+            >
+              last 30 days
+            </SelectItem>
+            <SelectItem
+              value="90"
+              onClick={() => {
+                if (filterparam !== 90) {
+                  setFilterParam(90);
+                }
+              }}
+            >
+              last 90 days
+            </SelectItem>
+            <SelectItem
+              value="180"
+              onClick={() => {
+                if (filterparam !== 180) {
+                  setFilterParam(180);
+                }
+              }}
+            >
+              last 6 months
+            </SelectItem>
+            <SelectItem
+              value="365"
+              onClick={() => {
+                if (filterparam !== 365) {
+                  setFilterParam(365);
+                }
+              }}
+            >
+              last 1 year
+            </SelectItem>
+          </SelectContent>
+        </Select>
       </div>
       <div className=" pt-2 text-center font-Poetsen text-xl">
         {toggle ? <h1>Expense</h1> : <h1>Income</h1>}

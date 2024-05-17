@@ -11,6 +11,7 @@ import { DatePicker } from '@/components/DatePicker';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import { Account, FormDataType } from '@/App';
+import CatPopUp from './CatPopUp';
 
 function InputTabs({
   handleSubmit,
@@ -21,6 +22,7 @@ function InputTabs({
   date,
   setDate,
   setExpenseToggle,
+  setAccountList,
 }: {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -30,6 +32,7 @@ function InputTabs({
   date: Date;
   setDate: React.Dispatch<React.SetStateAction<Date>>;
   setExpenseToggle: React.Dispatch<React.SetStateAction<string>>;
+  setAccountList: React.Dispatch<React.SetStateAction<Account[]>>;
 }) {
   return (
     <div className="expense-modifier-wrapper flex">
@@ -86,7 +89,7 @@ function InputTabs({
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="mx-2 my-4">
+              <div className="mx-2 my-4 flex">
                 <Select
                   required
                   onValueChange={(e) =>
@@ -95,7 +98,7 @@ function InputTabs({
                   defaultValue="Unassigned"
                   value={formData.accountname}
                 >
-                  <SelectTrigger className="w-[180px]">
+                  <SelectTrigger className="w-[125px]">
                     <SelectValue placeholder="Account" />
                   </SelectTrigger>
                   <SelectContent>
@@ -108,6 +111,10 @@ function InputTabs({
                     })}
                   </SelectContent>
                 </Select>
+                <CatPopUp
+                  accountList={accountList}
+                  setAccountList={setAccountList}
+                />
               </div>
             </div>
             <div className="flex justify-center">
@@ -158,7 +165,7 @@ function InputTabs({
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="mx-2 my-4">
+              <div className="mx-2 my-4 flex">
                 <Select
                   required
                   onValueChange={(e) =>
@@ -167,7 +174,7 @@ function InputTabs({
                   defaultValue="Unassigned"
                   value={formData.accountname}
                 >
-                  <SelectTrigger className="w-[180px]">
+                  <SelectTrigger className="w-[125px]">
                     <SelectValue placeholder="Account" />
                   </SelectTrigger>
                   <SelectContent>
@@ -180,6 +187,10 @@ function InputTabs({
                     })}
                   </SelectContent>
                 </Select>
+                <CatPopUp
+                  accountList={accountList}
+                  setAccountList={setAccountList}
+                />
               </div>
             </div>
             <div className="flex justify-center">
