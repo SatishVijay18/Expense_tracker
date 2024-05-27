@@ -14,6 +14,10 @@ A basic expense tracker app made with:
 - Tailwind CSS
 - Multiple eslint & prettier plugins installed
 
+## Live Link
+
+Current deployment link : https://expense-tracker-68v1-satishs-projects-4d273205.vercel.app/
+
 
 ## Install
 
