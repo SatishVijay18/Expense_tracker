@@ -1,5 +1,5 @@
 import { LineChart } from '@mui/x-charts/LineChart';
-import { Expense } from '@/App';
+import { Expense } from './TypeExports';
 import { Label } from '@/components/ui/label';
 import { useState } from 'react';
 import {

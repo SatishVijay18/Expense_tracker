@@ -4,28 +4,7 @@ import InputTabs from './components/InputTabs';
 import { DataTable } from './components/Table/DataTable';
 
 import { columns } from './components/Table/Columns';
-
-export interface Expense {
-  name: string;
-  amount: number;
-  description: string;
-  date: Date;
-  account: Account;
-  accountName: string;
-  type: string;
-}
-
-export interface Account {
-  name: string;
-  type: string;
-}
-
-export interface FormDataType {
-  name: string;
-  amount: number;
-  description: string;
-  accountname: string;
-}
+import { Expense, Account } from './components/TypeExports';
 
 function App() {
   const [expenseToggle, setexpenseToggle] = useState('expense');

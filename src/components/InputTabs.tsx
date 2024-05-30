@@ -10,7 +10,7 @@ import {
 import { DatePicker } from '@/components/DatePicker';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-import { Account, FormDataType } from '@/App';
+import { Account, FormDataType } from './TypeExports';
 import CatPopUp from './CatPopUp';
 
 function InputTabs({
