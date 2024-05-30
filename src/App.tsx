@@ -83,10 +83,7 @@ function App() {
           />
         </div>
         <div className="m-4 flex h-[45%]  rounded-xl bg-white bg-opacity-70">
-          <ChartComponent
-            expenseList={expenseList}
-            expenseToggle={expenseToggle}
-          />
+          <ChartComponent expenseList={expenseList} />
         </div>
       </div>
     </div>

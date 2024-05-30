@@ -1,6 +1,5 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Expense } from './TypeExports';
-import { Label } from '@/components/ui/label';
 import { useState } from 'react';
 import {
   Select,
@@ -10,15 +9,15 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
+import { Button } from './ui/button';
+
 export default function ChartComponent({
   expenseList,
-  expenseToggle,
 }: {
   expenseList: Expense[];
-  expenseToggle: string;
 }) {
   const [filterparam, setFilterParam] = useState(0);
-  const toggle = expenseToggle == 'expense' ? true : false;
+  const [toggle, setToggle] = useState('expense');
   const xData: number[] = [];
   const xlabel: string[] = [];
   expenseList.map((expense) => {
@@ -47,7 +46,7 @@ export default function ChartComponent({
     xData.length = 0;
     xlabel.length = 0;
     filteredExpenses.forEach((expense) => {
-      if (toggle) {
+      if (toggle == 'expense') {
         if (expense.type == 'expense') {
           xData.push(expense.amount);
           xlabel.push(expense.date.toLocaleDateString());
@@ -74,13 +73,24 @@ export default function ChartComponent({
     }
   };
 
-  console.log(filterparam);
+  console.log(toggle);
   dateFilter();
 
   return (
     <div className="flex h-full w-full flex-col font-Poetsen">
       <div className=" mt-2 flex w-full items-center justify-center">
-        <Label className="mx-2"> Pick Date Range</Label>
+        <Button
+          className="mx-2 bg-custtern"
+          onClick={() => setToggle('expense')}
+        >
+          Expense
+        </Button>
+        <Button
+          className="mx-2 bg-custtern"
+          onClick={() => setToggle('income')}
+        >
+          Income
+        </Button>
         <Select onValueChange={handleSelectChange}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Select Range" />
@@ -140,7 +150,7 @@ export default function ChartComponent({
         </Select>
       </div>
       <div className=" pt-2 text-center font-Poetsen text-xl">
-        {toggle ? <h1>Expense</h1> : <h1>Income</h1>}
+        {toggle == 'expense' ? <h1>Expense</h1> : <h1>Income</h1>}
       </div>
 
       <div className="flex h-full w-full justify-center">
